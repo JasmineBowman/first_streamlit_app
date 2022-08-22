@@ -1,2 +1,3 @@
 import streamlit
-streamlit.title('SF Diner Exercise')
+
+streamlit.title('NEW DATA UPDATE SF EXERCISE')
