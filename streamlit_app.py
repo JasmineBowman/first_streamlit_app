@@ -55,7 +55,7 @@ import requests
 
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + add_my_fruit)
 
-
+streamlit.text("Thanks for adding jackfruit") 
 
 
 
