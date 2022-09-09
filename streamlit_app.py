@@ -49,8 +49,11 @@ my_data_rows = my_cur.fetchone()
 streamlit.header("The Fruit Load List contains:")
 streamlit.dataframe(my_data_rows)
 
+# allow end user to add a fruit to the above list 
+add_my_fruit = streamlit.text_input('What fruit would you like to add?', 'jackfruit')
+import requests 
 
-
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + add_my_fruit)
 
 
 
