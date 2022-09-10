@@ -43,7 +43,11 @@ my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
 streamlit.dataframe(my_data_rows)
 
-
+# allow end user to add a fruit to the list 
+def insert_row_snowflake(new_fruit):
+  with my_cnx.cursor() as my_cur:
+    my_cur.execute("insert into fruit_load_list values (new_fruit)")
+    return "Thanks for adding" + new_fruit
 
 
 
@@ -79,11 +83,13 @@ streamlit.dataframe(my_data_rows)
 #fruits_selected = streamlit.multiselect ("Pick some fruits:", list(my_fruit_list.index), (["Strawberry", "Cherry"]))
 #fruits_to_show = my_fruit_list.loc[fruits_selected]
 #streamlit.dataframe(my_fruit_list)
+
 # REPEATBLE CODE BLOC (FUNCTION) 
 #def get_fruityvice_data(this_fruit_choice):
   #fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
   #fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
   #return fruityvice_normalized
+  
 #MY NEW SECTION TO DISPLAY FRUITVICE API RESPONSE 
 #streamlit.header("Fruityvice Fruit Advice!")
 #try:
